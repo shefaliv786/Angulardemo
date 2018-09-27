@@ -1,0 +1,15 @@
+
+  <ngx-modal [(visible)]="isDisplay">
+    <h4><b>Stock Detail</b></h4>
+    <form class='container'>
+      <div class="row" *ngIf='selectedStock'>
+          <label class="col-lg-2">Total Shares </label>
+          <input class="col-lg-2" type="text" [value]='selectedStock.totalShares'>
+      </div>
+      <div class="row" *ngIf='selectedStock'>
+      <label class="col-lg-2">Close Price </label>
+      <input type="text" class="col-lg-2" name="selectedStock.totalShares" [(ngModel)]='selectedStock.close'>
+    </div>
+      <button class='btn' type="Submit">Update</button>
+      </form>
+</ngx-modal>

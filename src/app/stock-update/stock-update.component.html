@@ -1,0 +1,28 @@
+
+<div class="mt-10">
+<div class="col-lg-2 mt-10">
+    <div class="dropdown">
+        <input class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" [(ngModel)]="selectedStockName"/>
+        
+        <ul class="dropdown-menu">
+          <li *ngFor='let stock of stockData' (click)='onToggle(stock.stock, stock.$key)'><a href="#">{{stock.stock}}</a></li>
+        </ul> 
+        <span class="caret"></span>
+      </div>    
+</div>
+<div class="col-lg-8">
+  <chart type="line" [data]="data" [options]="options" #stockChart></chart>
+  </div>
+</div> 
+
+<div class='col-lg-10'>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of stockListForDisplay">
+          <span><b>Date: </b></span>{{item.date}} 
+          <span><b>Total Shares: </b></span>{{item.totalShares}} 
+          <span><b>Close Price: </b></span>{{item.close}}
+          <span class="glyphicon glyphicon-edit" (click)="edit(item.$key)"  ></span>
+        </li>
+      </ul>
+<app-stock-modal [isDisplay]='isDisplay' [selectedStock]='selectedStock'></app-stock-modal>
+</div>
